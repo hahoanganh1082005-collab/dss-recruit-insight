@@ -1,0 +1,257 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Be Vietnam Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "Fira Code", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+:root {
+  /* UI/UX Pro Max Design System Tokens — Crisp Executive Light Mode (Default) */
+  --color-primary: #1e40af;
+  --color-primary-hover: #1e3a8a;
+  --color-secondary: #3b82f6;
+  --color-accent: #d97706;
+  --color-accent-hover: #b45309;
+  --color-background: #f8fafc;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f1f5f9;
+  --color-foreground: #0f172a;
+  --color-heading: #1e3a8a;
+  --color-muted-foreground: #475569;
+  --color-border: #e2e8f0;
+  --color-border-accent: #dbeafe;
+  --color-destructive: #dc2626;
+  --color-success: #059669;
+  --color-ring: #1e40af;
+
+  --shadow-card: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-card-hover: 0 10px 20px -5px rgba(30, 64, 175, 0.08), 0 4px 8px -4px rgba(15, 23, 42, 0.05);
+}
+
+.dark {
+  /* High-Contrast Executive Dark Mode */
+  --color-primary: #3b82f6;
+  --color-primary-hover: #60a5fa;
+  --color-secondary: #60a5fa;
+  --color-accent: #f59e0b;
+  --color-accent-hover: #fbbf24;
+  --color-background: #0b1120;
+  --color-surface: #111827;
+  --color-surface-muted: #1e293b;
+  --color-foreground: #f8fafc;
+  --color-heading: #f1f5f9;
+  --color-muted-foreground: #94a3b8;
+  --color-border: #1e293b;
+  --color-border-accent: #1e3a8a;
+  --color-destructive: #ef4444;
+  --color-success: #10b981;
+  --color-ring: #60a5fa;
+
+  --shadow-card: 0 2px 6px rgba(0, 0, 0, 0.3);
+  --shadow-card-hover: 0 12px 24px -6px rgba(0, 0, 0, 0.5);
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    overflow-x: hidden;
+  }
+
+  button,
+  [role="button"],
+  select,
+  summary,
+  a[href] {
+    cursor: pointer;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
+  }
+}
+
+/* Tabular numbers for KPI metrics, currency, percentages */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Reusable Design System Surface & Controls */
+.ds-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 0.875rem;
+  box-shadow: var(--shadow-card);
+  transition: box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.ds-card-interactive {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 0.875rem;
+  box-shadow: var(--shadow-card);
+  transition: box-shadow 180ms ease, border-color 180ms ease, transform 180ms ease;
+  cursor: pointer;
+}
+
+.ds-card-interactive:hover {
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--color-secondary);
+}
+
+.ds-input {
+  width: 100%;
+  background-color: var(--color-surface);
+  color: var(--color-foreground);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  padding: 0.55rem 0.8rem;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.ds-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.14);
+}
+
+.dark .ds-input:focus {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.22);
+}
+
+.ds-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #1e40af;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 0.55rem 1rem;
+  border-radius: 0.5rem;
+  transition: background-color 160ms ease, box-shadow 160ms ease;
+  cursor: pointer;
+}
+
+.ds-btn-primary:hover:not(:disabled) {
+  background-color: #1e3a8a;
+  box-shadow: 0 4px 10px rgba(30, 64, 175, 0.22);
+}
+
+.dark .ds-btn-primary {
+  background-color: #2563eb;
+}
+
+.dark .ds-btn-primary:hover:not(:disabled) {
+  background-color: #1d4ed8;
+}
+
+.ds-btn-accent {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #d97706;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 0.55rem 1rem;
+  border-radius: 0.5rem;
+  transition: background-color 160ms ease, box-shadow 160ms ease;
+  cursor: pointer;
+}
+
+.ds-btn-accent:hover:not(:disabled) {
+  background-color: #b45309;
+  box-shadow: 0 4px 10px rgba(217, 119, 6, 0.24);
+}
+
+.ds-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: var(--color-surface);
+  color: var(--color-foreground);
+  border: 1px solid var(--color-border);
+  font-weight: 500;
+  font-size: 0.875rem;
+  padding: 0.55rem 0.95rem;
+  border-radius: 0.5rem;
+  transition: background-color 150ms ease, border-color 150ms ease;
+  cursor: pointer;
+}
+
+.ds-btn-secondary:hover:not(:disabled) {
+  background-color: var(--color-surface-muted);
+  border-color: #cbd5e1;
+}
+
+.dark .ds-btn-secondary:hover:not(:disabled) {
+  border-color: #334155;
+}
+
+/* Custom Subtle Scrollbars */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(100, 116, 139, 0.35);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.55);
+}
+
+/* Respect Reduced Motion Preference (ui-ux-pro-max checklist) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Clean Print Layout for Executive Reports */
+@media print {
+  aside,
+  header,
+  .no-print {
+    display: none !important;
+  }
+  main {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+  .ds-card {
+    box-shadow: none !important;
+    border: 1px solid #cbd5e1 !important;
+    break-inside: avoid;
+  }
+}

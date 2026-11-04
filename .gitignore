@@ -1,0 +1,22 @@
+# Dependencies & Build Outputs
+node_modules/
+build/
+dist/
+coverage/
+
+# Environment & Secrets
+.env*
+!.env.example
+
+# Local SQLite Runtime Files & Raw MSSQL Backup (>100MB)
+# Note: All 21,827 postings are preserved in database/job_market_seed.json.gz
+database/*.db
+database/*.db-shm
+database/*.db-wal
+*.bak
+
+# Local Agent & OS Metadata
+.agents/
+.DS_Store
+Thumbs.db
+*.log
